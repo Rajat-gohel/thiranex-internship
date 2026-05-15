@@ -1,0 +1,180 @@
+Password Strength Analyzer
+
+Project Overview
+
+A Password Strength Analyzer is a security tool that checks whether a password is strong or weak based on:
+
+Length
+Uppercase & lowercase letters
+Numbers
+Special characters
+Common password detection
+Password uniqueness
+
+It also suggests stronger passwords to improve security.
+
+Key Features
+1. Password Strength Checking
+
+Analyze password based on:
+
+Condition	Example
+Minimum Length	8+ characters
+Uppercase Letters	A-Z
+Lowercase Letters	a-z
+Numbers	0-9
+Special Symbols	@ # $ % & *
+2. Strength Levels
+Score	Strength
+0-2	Weak
+3-4	Medium
+5+	Strong
+3. Common Password Detection
+
+Detect passwords like:
+
+123456
+password
+admin
+qwerty
+
+Store these in a text file or database.
+
+4. Password Suggestions
+
+Generate stronger alternatives.
+
+Example:
+
+Weak Password:
+
+raj123
+
+Suggested:
+
+Raj@123Secure
+5. Optional Feature – Password Reuse Detection
+
+Store old passwords in database.
+
+If user reuses password:
+
+⚠ Password already used before
+
+You can use:
+
+SQLite
+MySQL
+Technologies You Can Use
+Technology	Purpose
+Python	Backend logic
+Flask	Web framework
+HTML/CSS	Frontend
+JavaScript	Live password checking
+SQLite	Database
+hashlib	Password hashing
+
+Project Structure
+password-strength-analyzer/
+│
+├── app.py
+├── templates/
+│   └── index.html
+├── static/
+│   └── style.css
+├── common_passwords.txt
+├── database.db
+└── requirements.txt
+Simple Python Logic
+import re
+
+def check_password_strength(password):
+    score = 0
+
+    if len(password) >= 8:
+        score += 1
+
+    if re.search(r"[A-Z]", password):
+        score += 1
+
+    if re.search(r"[a-z]", password):
+        score += 1
+
+    if re.search(r"[0-9]", password):
+        score += 1
+
+    if re.search(r"[@$!%*?&]", password):
+        score += 1
+
+    if score <= 2:
+        return "Weak"
+    elif score <= 4:
+        return "Medium"
+    else:
+        return "Strong"
+
+password = input("Enter Password: ")
+print(check_password_strength(password))
+Password Hashing Example
+
+Use hashing for security.
+
+import hashlib
+
+password = "MySecurePass123"
+
+hashed = hashlib.sha256(password.encode()).hexdigest()
+
+print(hashed)
+Flask Web App Flow
+User Input
+
+User enters password.
+
+Backend Processing
+
+Python checks:
+
+Length
+Complexity
+Reuse
+Common passwords
+Output
+
+Display:
+
+Strength level
+Suggestions
+Security tips
+Security Concepts You Will Learn
+Password security
+Hashing
+Encryption basics
+Regex validation
+Authentication concepts
+Database security
+Extra Features (Advanced)
+
+You can add:
+
+Password entropy calculator
+Real-time strength meter
+Dark mode UI
+AI-based password suggestion
+Breached password API checker
+Multi-language support
+Resume Description
+
+You can write this in your resume:
+
+Developed a Password Strength Analyzer using Python and Flask that evaluates password security based on complexity, uniqueness, and cryptographic principles. Implemented password hashing, reuse detection, and secure password recommendations.
+
+Expected Output Example
+Password: Raj123
+
+Strength: Weak
+
+Suggestions:
+✔ Add special characters
+✔ Increase password length
+✔ Use uppercase letters
