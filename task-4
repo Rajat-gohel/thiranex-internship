@@ -1,0 +1,210 @@
+# 🔐 Secure Login System
+
+A secure web application developed using Python and Flask that provides user registration, login authentication, password hashing, session management, and protection against common web attacks like SQL Injection.
+
+---
+
+## 📌 Project Overview
+
+The Secure Login System is designed to implement modern authentication and cybersecurity practices in web applications. The system securely stores user passwords using strong hashing algorithms such as **bcrypt** or **Argon2**, validates user inputs, manages sessions securely, and protects user accounts from unauthorized access.
+
+This project is suitable for:
+- Cybersecurity Projects
+- Internship Submissions
+- College Final Year Projects
+- Web Security Learning
+
+---
+
+## 🚀 Features
+
+### ✅ User Registration & Login
+- Secure account registration
+- User authentication system
+- Password confirmation validation
+
+### 🔑 Password Hashing
+- Passwords are encrypted using:
+  - bcrypt
+  - Argon2
+- Plain text passwords are never stored
+
+### 🛡️ SQL Injection Protection
+- Uses parameterized SQL queries
+- Prevents malicious database attacks
+
+### 📋 Input Validation
+- Email format validation
+- Password strength checking
+- Empty field prevention
+
+### 🔒 Session Management
+- Secure user session creation
+- Protected dashboard access
+- Logout functionality
+
+### 📲 Optional Two-Factor Authentication (2FA)
+- OTP verification support
+- Additional security layer
+
+---
+
+## 🧰 Technologies Used
+
+| Technology | Purpose |
+|---|---|
+| Python | Backend Development |
+| Flask | Web Framework |
+| SQLite / MySQL | Database |
+| bcrypt / Argon2 | Password Hashing |
+| HTML/CSS | Frontend Design |
+| Flask Session | Session Management |
+
+---
+
+## 📂 Project Structure
+
+```bash
+secure-login-system/
+│
+├── app.py
+├── requirements.txt
+├── database.db
+├── templates/
+│   ├── login.html
+│   ├── register.html
+│   └── dashboard.html
+│
+├── static/
+│   └── style.css
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/yourusername/secure-login-system.git
+```
+
+### 2️⃣ Open Project Folder
+
+```bash
+cd secure-login-system
+```
+
+### 3️⃣ Install Required Packages
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ▶️ Run the Application
+
+```bash
+python app.py
+```
+
+Open browser:
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## 🔐 Security Features
+
+| Security Feature | Description |
+|---|---|
+| Password Hashing | Protects user passwords |
+| SQL Injection Protection | Prevents database attacks |
+| Session Authentication | Maintains secure login sessions |
+| Input Validation | Blocks invalid input |
+| Logout Functionality | Safely destroys active sessions |
+
+---
+
+## 💻 Sample Code
+
+### Password Hashing
+
+```python
+import bcrypt
+
+password = "mypassword".encode()
+hashed = bcrypt.hashpw(password, bcrypt.gensalt())
+```
+
+### Password Verification
+
+```python
+bcrypt.checkpw(password, hashed)
+```
+
+---
+
+## 📊 Expected Output
+
+```text
+User Registered Successfully
+Login Successful
+Session Created
+Logout Successful
+```
+
+---
+
+## 🎯 Advantages
+
+- Secure authentication system
+- Protection against common cyber attacks
+- Safe password storage
+- Secure user session handling
+- Easy integration into web applications
+
+---
+
+## 🌍 Applications
+
+- Banking Systems
+- College Portals
+- E-Commerce Websites
+- Secure Admin Dashboards
+- Enterprise Web Applications
+
+---
+
+## 🔮 Future Improvements
+
+- JWT Authentication
+- Google OAuth Login
+- CAPTCHA Integration
+- Email Verification
+- Advanced Two-Factor Authentication
+
+---
+
+## 📈 Expected Outcome
+
+The Secure Login System securely authenticates users using hashed passwords, validates user input, manages sessions safely, and protects against SQL Injection attacks. The system significantly reduces unauthorized access and improves overall web application security.
+
+---
+
+## 🏆 Conclusion
+
+This project demonstrates how secure authentication systems can be developed using Flask and cybersecurity best practices. By implementing password hashing, session management, and attack prevention mechanisms, the application provides a reliable and secure login environment.
+
+---
+
+## 👨‍💻 Author
+
+**Rajat Prajapati**
+
+GitHub: https://github.com/yourusername
