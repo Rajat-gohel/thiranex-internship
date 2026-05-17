@@ -1,184 +1,91 @@
-# Phishing Email Detection Model (Scikit-learn)
+# Phishing Email Detection Model
 
-## Project Overview
+## Overview
+The Phishing Email Detection Model is a Machine Learning project developed using Python and Scikit-learn. This system detects whether an email is **Phishing** or **Safe (Legitimate)** by analyzing email text and suspicious URL patterns.
 
-The **Phishing Email Detection Model** is a Machine Learning project developed using Python and Scikit-learn. The main objective of this project is to detect whether an email is **Phishing** or **Safe (Legitimate)** based on email content and URL-related features.
-
-This project helps improve cybersecurity by automatically identifying suspicious emails that may attempt to steal sensitive information such as passwords, bank details, or personal data.
-
----
-
-# Objectives
-
-* Train a machine learning model using phishing and legitimate email datasets
-* Extract important features from email text
-* Detect suspicious URLs and phishing keywords
-* Classify emails as:
-
-  * **Phishing**
-  * **Safe**
-* Evaluate model performance using:
-
-  * Accuracy Score
-  * Confusion Matrix
+The project helps improve cybersecurity by automatically identifying fraudulent emails that may attempt to steal sensitive information such as passwords, banking details, or personal data.
 
 ---
 
-# Technologies Used
-
-| Technology      | Purpose                        |
-| --------------- | ------------------------------ |
-| Python          | Programming Language           |
-| Scikit-learn    | Machine Learning               |
-| Pandas          | Data Handling                  |
-| NumPy           | Numerical Operations           |
-| Matplotlib      | Visualization                  |
-| Seaborn         | Confusion Matrix Visualization |
-| TfidfVectorizer | Text Feature Extraction        |
-
----
-
-# Dataset
-
-The dataset contains two types of emails:
-
-1. **Phishing Emails**
-
-   * Fake login alerts
-   * Suspicious bank messages
-   * Malicious URLs
-
-2. **Legitimate Emails**
-
-   * Normal communication
-   * Business emails
-   * Personal emails
-
-### Dataset Columns
-
-| Column | Description     |
-| ------ | --------------- |
-| text   | Email content   |
-| label  | phishing / safe |
+## Features
+- Train model using phishing and legitimate email datasets
+- Extract email features using TF-IDF
+- Detect suspicious keywords and URLs
+- Classify emails as:
+  - Phishing
+  - Safe
+- Display:
+  - Accuracy Score
+  - Confusion Matrix
 
 ---
 
-# Working Process
-
-## 1. Data Collection
-
-The phishing and safe email dataset is collected from online cybersecurity datasets.
+## Technologies Used
+- Python
+- Scikit-learn
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
 
 ---
 
-## 2. Data Preprocessing
+## Project Structure
 
-The preprocessing stage includes:
-
-* Removing special characters
-* Converting text to lowercase
-* Removing stop words
-* Cleaning URLs
-
-Example:
-
-```python
-text = text.lower()
+```bash
+phishing-email-detection/
+│
+├── dataset/
+│   └── emails.csv
+│
+├── phishing_detector.py
+├── requirements.txt
+├── README.md
+└── screenshots/
 ```
 
 ---
 
-## 3. Feature Extraction
+## Installation
 
-The system extracts:
+Clone the repository:
 
-* Suspicious keywords
-* URL presence
-* Email text patterns
+```bash
+git clone https://github.com/yourusername/phishing-email-detection.git
+```
 
-Using:
+Move into project directory:
 
-```python
-TfidfVectorizer()
+```bash
+cd phishing-email-detection
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
 ```
 
 ---
 
-## 4. Model Training
+## Run the Project
 
-Machine Learning algorithms used:
-
-* Naive Bayes
-* Logistic Regression
-* Random Forest
-
-Example:
-
-```python
-from sklearn.naive_bayes import MultinomialNB
-model = MultinomialNB()
+```bash
+python phishing_detector.py
 ```
 
 ---
 
-## 5. Prediction
-
-The model predicts whether an email is:
-
-* Phishing
-* Safe
-
-Example:
+## Sample Code
 
 ```python
-prediction = model.predict(email)
-```
-
----
-
-# Sample Python Code
-
-```python
-import pandas as pd
-from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.metrics import accuracy_score, confusion_matrix
-
-# Load dataset
-data = pd.read_csv("emails.csv")
-
-# Features and labels
-X = data['text']
-y = data['label']
-
-# Convert text into numerical features
-vectorizer = TfidfVectorizer()
-X_vectorized = vectorizer.fit_transform(X)
-
-# Split dataset
-X_train, X_test, y_train, y_test = train_test_split(
-    X_vectorized, y, test_size=0.2, random_state=42
-)
-
-# Train model
-model = MultinomialNB()
-model.fit(X_train, y_train)
-
-# Prediction
-y_pred = model.predict(X_test)
-
-# Accuracy
-accuracy = accuracy_score(y_test, y_pred)
-print("Accuracy:", accuracy)
-
-# Confusion Matrix
-print(confusion_matrix(y_test, y_pred))
 ```
 
 ---
 
-# Output Example
+## Output Example
 
 ```text
 Accuracy: 96.5%
@@ -190,50 +97,47 @@ Confusion Matrix:
 
 ---
 
-# Confusion Matrix Explanation
+## Machine Learning Workflow
 
-| Value          | Meaning                            |
-| -------------- | ---------------------------------- |
-| True Positive  | Correctly detected phishing emails |
-| True Negative  | Correctly detected safe emails     |
-| False Positive | Safe email marked as phishing      |
-| False Negative | Phishing email marked as safe      |
-
----
-
-# Advantages
-
-* Fast email classification
-* Improves cybersecurity
-* Detects suspicious messages automatically
-* Reduces phishing attacks
+1. Data Collection
+2. Data Preprocessing
+3. Feature Extraction
+4. Model Training
+5. Prediction
+6. Performance Evaluation
 
 ---
 
-# Applications
-
-* Email Security Systems
-* Banking Security
-* Corporate Mail Filtering
-* Spam Detection Systems
-
----
-
-# Future Improvements
-
-* Deep Learning integration
-* Real-time email scanning
-* Browser extension support
-* Advanced URL analysis
+## Advantages
+- Fast email classification
+- Improves email security
+- Detects phishing attempts automatically
+- Reduces cyber attacks
 
 ---
 
-# Expected Outcome
-
-The developed machine learning model successfully classifies emails as **Phishing** or **Safe** with high accuracy using textual analysis and URL-based features. The system helps users identify malicious emails and enhances overall email security.
+## Applications
+- Email Spam Filters
+- Banking Security Systems
+- Corporate Email Protection
+- Cybersecurity Solutions
 
 ---
 
-# Conclusion
+## Future Improvements
+- Real-time email scanning
+- Deep Learning implementation
+- Browser extension support
+- Advanced URL analysis
 
-The Phishing Email Detection Model is an effective cybersecurity project that uses Machine Learning techniques to detect fraudulent emails. By analyzing email content and suspicious URLs, the system can accurately classify emails and help prevent phishing attacks.
+---
+
+## Conclusion
+This project demonstrates how Machine Learning can be used to improve cybersecurity by detecting phishing emails effectively. The model analyzes textual content and URL patterns to classify emails with high accuracy.
+
+---
+
+## Author
+Rajat Prajapati
+
+GitHub: https://github.com/yourusername
